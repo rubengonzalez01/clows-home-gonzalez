@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import MyNavbar from './components/Navbar/MyNavbar';
+import Home from './pages/Home/Home';
+import Login from './pages/Login/Login';
+import Search from './pages/Search/Search';
+import Offices from './pages/Offices/Offices';
+import About from './pages/About/About';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <MyNavbar />
+        <Routes>
+          <Route path='/' exact element={<Home />} />
+          <Route path='/mascotas' exact element={<Search />} />
+          <Route path='/nosotros' exact element={<About />} />
+          <Route path='/sucursales' exact element={<Offices />} />
+          <Route path='/login' exact element={<Login />} />
+          {/* <Route path='*' exact element={<NoMatch />} /> */}
+        </Routes>          
+      </BrowserRouter>
+    </>
   );
 }
 

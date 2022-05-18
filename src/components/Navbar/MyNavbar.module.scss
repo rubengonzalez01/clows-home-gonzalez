@@ -1,0 +1,34 @@
+@import '../../styles/vars';
+
+.logo {
+  width: 100px;
+}
+
+.nav_icon {
+  margin-right: 5px;
+}
+
+.nav_icon_mg{
+  margin-right: 5px;
+  position: relative;
+  top: -3px;
+}
+
+.nav_text {
+  display: flex !important;
+  align-items: center;
+  color: $secondary !important;
+  
+  &:hover {
+    color: $principal !important;
+  }
+
+  a {
+    color: $secondary !important;
+  }
+  
+  a:hover {
+    color: $principal !important;
+  }
+
+}
