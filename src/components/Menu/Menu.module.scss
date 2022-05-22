@@ -1,0 +1,41 @@
+@import '../../styles/vars';
+
+.nav_icon {
+  margin-right: 5px;
+}
+
+.nav_icon_mg{
+  margin-right: 5px;
+  position: relative;
+  top: -3px;
+}
+
+.nav_text {
+  display: flex !important;
+  align-items: center;
+  margin: 0 8px;
+  color: $principal !important;
+  
+  &:hover {
+    color: $secondary !important;
+  }
+
+  a {
+    color: $principal !important;
+  }
+  
+  a:hover {
+    color: $secondary !important;
+  }
+}
+
+@media only screen and (min-width: $desktop) {
+  hr {
+    display: block;
+    height: 1px;
+    width: 24px;
+    transform: rotate(90deg);
+    position: relative;
+    top: 3px;
+  }
+}
