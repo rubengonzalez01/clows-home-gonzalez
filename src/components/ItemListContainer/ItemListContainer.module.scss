@@ -1,10 +1,27 @@
+@import '../../styles/vars';
 
 .itemContainer {
   display: flex;
   justify-content: center;
 
+  &__title {
+    display: flex;
+    width: 100%;
+    background-color: $secondary;
+    justify-content: center;
+    padding: 10px;
+    color: #fff;
+
+    &_text {
+      margin-bottom: 0;
+      font-size: 28px;
+      font-weight: 600;
+    }
+  }
+
   &__group {
     display: flex;
     flex-wrap: wrap;
+    padding: 12px 0;
   }
 }

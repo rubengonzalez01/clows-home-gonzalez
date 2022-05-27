@@ -5,7 +5,7 @@ export default function Home() {
   const title = 'LOS MÁS VENDIDOS';
 
   return(
-    <div className="container d-flex flex-column justify-content-center">
+    <div className="py-4">
       <ItemListContainer title={ title }/>
     </div>
   );
