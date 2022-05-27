@@ -1,0 +1,10 @@
+
+.itemContainer {
+  display: flex;
+  justify-content: center;
+
+  &__group {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

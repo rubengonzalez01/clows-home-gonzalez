@@ -1,0 +1,38 @@
+@import '../../styles/vars';
+
+.itemCounter {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  &__pannel {
+    display: flex;
+    width: 150px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 21px;
+    box-shadow: 0px 0px 2.4px #bcbcbc;
+    margin-bottom: 12px;
+  }
+
+  &__button {
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: $principal;//#c6b18b;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  
+    &:hover {
+      color: $secondary;
+    }
+  
+    &:active {
+      color: $principal;
+    }
+  }
+}

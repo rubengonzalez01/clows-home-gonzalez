@@ -2,12 +2,11 @@ import ItemListContainer from "../../components/ItemListContainer/ItemListContai
 
 export default function Home() {
 
-  const hello = `Hola bienvenido a Clow's Home. Próximamente tendremos nuestro catálogo disponible.`;
+  const title = 'LOS MÁS VENDIDOS';
 
   return(
-    <>
-      <h1>Home is working...</h1>
-      <ItemListContainer greeting={ hello }/>
-    </>
+    <div className="container d-flex flex-column justify-content-center">
+      <ItemListContainer title={ title }/>
+    </div>
   );
 }
