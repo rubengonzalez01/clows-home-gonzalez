@@ -39,9 +39,11 @@ export default function ItemListContainer({ title }) {
       <div className={ `container ${styles.itemContainer}` }>
         <div className={ styles.itemContainer__group }>
         {
-          loading ? <Spinner variant="secondary" animation="border" role="status">
-                      <span className="visually-hidden">Loading...</span>
-                    </Spinner>
+          loading ? <div className={ styles.itemContainer__spinner }>
+                      <Spinner variant="secondary" animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                      </Spinner>
+                    </div>
                   : 
                     <ItemList listProducts={listProducts} />                    
         }

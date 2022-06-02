@@ -1,0 +1,115 @@
+@import '../../styles/vars';
+
+.itemDetail {
+
+  &__wrapper {
+    @media only screen and (min-width: $tablet) {
+      display: flex;
+      padding-top: 18px;
+    }
+  }
+
+  &__images {
+    @media only screen and (min-width: $tablet) {
+      width: 50%;
+      text-align: center;
+    }
+  }
+
+  &__body {
+    @media only screen and (min-width: $tablet) {
+      width: 50%;
+    }
+  }
+
+  &__data {
+    display: flex;
+    flex-flow: column wrap;
+    margin-bottom: 15px;   
+  }
+
+  &__image {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 700;
+
+    @media only screen and (min-width: $tablet) {
+      font-size: 15px;
+    }
+  }
+
+  &__price {
+    font-size: 26px;
+    font-weight: 600;
+    color: $secondary;
+
+    @media only screen and (min-width: $tablet) {
+      font-size: 28px;
+    }
+  }
+
+  &__options {
+    font-size: 14px;
+    font-weight: 600;
+    color: #656363;
+
+    @media only screen and (min-width: $tablet) {
+      font-size: 13px;
+    }
+  }
+
+  &__counter {
+    padding: 15px 0 40px 0;
+
+    @media only screen and (min-width: $tablet) {
+      display: flex;
+      align-items: center;
+    }
+
+  }
+
+  &__description_title {
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 1px solid gray;
+  }
+
+  &__description_text {
+    font-size: 14px;
+    text-align: justify;
+  }
+
+  &__breadcrumb {
+    font-size: 13px;
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+  }
+
+  &__add_cart {
+    padding-top: 20px;
+    width: 100%;
+
+    @media only screen and (min-width: $tablet) {
+      padding-top: 0;
+    }
+
+    button {
+      background-color: $secondary;
+      color: #fff;
+      border: none;
+
+      &:hover{
+        background-color: #c9a35f;
+        color: #fff;
+        border: none;
+      }
+    }
+  }
+}

@@ -4,16 +4,19 @@
   display: flex;
 
   &__wrapper {
-    margin: 15px;
     border-radius: 10px;
     border: 1px solid #cdc5c5;
-    padding: 12px;
+    padding: 6px;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
     text-align: center; 
-    width: 265px;
-    cursor: pointer; 
+    max-width: 265px;
+    justify-content: space-between;
+
+    @media only screen and (min-width: $tablet) {
+      padding: 12px;
+    }
   }
 
   &__wrapper:hover {
@@ -22,8 +25,8 @@
   }
 
   &__image_container {
-    width: 240px;
     padding-bottom: 8px;
+    cursor: pointer;
   }
 
   &__image {
@@ -35,20 +38,32 @@
   }
 
   &__title {
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 700;
+
+    @media only screen and (min-width: $tablet) {
+      font-size: 15px;
+    }
   }
 
   &__price {
-    font-size: 28px;
+    font-size: 18px;
     font-weight: 600;
     color: $secondary;
+
+    @media only screen and (min-width: $tablet) {
+      font-size: 28px;
+    }
   }
 
   &__options {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     color: #656363;
+
+    @media only screen and (min-width: $tablet) {
+      font-size: 13px;
+    }
   }
 
   &__footer{
@@ -58,7 +73,19 @@
   }
 
   &__add_cart {
-    padding-top: 10px;
+    padding-top: 20px;
     width: 100%;
+
+    button {
+      background-color: $secondary;
+      color: #fff;
+      border: none;
+
+      &:hover{
+        background-color: #c9a35f;
+        color: #fff;
+        border: none;
+      }
+    }
   }
 }

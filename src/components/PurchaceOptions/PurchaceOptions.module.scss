@@ -6,7 +6,13 @@
   &__wrapper {
     display: flex;
     justify-content: space-evenly;
-    padding: 25px 10px;
+    padding: 12px 10px;
+    flex-direction: column;
+
+    @media only screen and (min-width: $tablet) {
+      flex-direction: row;
+      padding: 25px 10px;
+    }
   }
 
   &__option {
@@ -21,8 +27,16 @@
   }
 
   &__description {
-    width: 200px;
+    width: 100%;
     font-size: 17px;
+
+    @media only screen and (min-width: $tablet) and (max-width: $desktop) {
+      width: 155px;
+    }
+
+    @media only screen and (min-width: $desktop) {
+      width: 200px;
+    }
   }
 
 }

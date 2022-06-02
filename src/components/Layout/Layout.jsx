@@ -1,17 +1,15 @@
 import MyNavbar from "../Navbar/MyNavbar";
 import PropTypes from 'prop-types';
-import ControlledCarousel from "../Carousel/ControlledCarousel";
-import PurchaceOptions from "../PurchaceOptions/PurchaceOptions";
+import Footer from "../Footer/Footer";
 
 export default function Layout( props ) {
   return(
     <>
       <MyNavbar />
-      <ControlledCarousel />
-      <PurchaceOptions />
       <div>
         { props.children }
       </div>
+      <Footer />
     </>
   );
 }

@@ -24,7 +24,7 @@ export default function ItemCount ({ initial, stock }) {
           <button onClick={handleCountMinus} className={ styles.itemCounter__button }>
             <BiMinus />
           </button>
-          <span>{count}</span>
+          <span className={ styles.itemCounter__count }>{count}</span>
           <button onClick={handleCountPlus} className={ styles.itemCounter__button }>
             <BiPlus />
           </button>

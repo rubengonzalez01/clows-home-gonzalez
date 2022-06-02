@@ -12,7 +12,6 @@
     align-items: center;
     border-radius: 21px;
     box-shadow: 0px 0px 2.4px #bcbcbc;
-    margin-bottom: 6px;
   }
 
   &__button {
@@ -33,6 +32,14 @@
   
     &:active {
       color: $principal;
+    }
+  }
+
+  &__count{
+    font-size: 13px;
+
+    @media only screen and (min-width: $tablet) {
+      font-size: 15px;
     }
   }
 }

@@ -1,0 +1,42 @@
+@import '../../styles/vars';
+
+.footerSections {
+
+  &__link {
+    text-decoration: none;
+    font-size: 14px;
+    color: #000;
+
+    &:hover {
+      color: $secondary;
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+  }
+
+  &__button {
+    display: block;
+    cursor: pointer;
+    padding: 7px 0;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__expandible_title {
+    font-size: 16px;
+    font-weight: 600;
+    color: $secondary;
+  }
+
+  &__expandible {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 3px;
+    margin: 10px 0px;
+  }
+}
