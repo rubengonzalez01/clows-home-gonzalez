@@ -7,9 +7,7 @@ export default function ItemDetail({ item }) {
     <div className={ styles.itemDetail }>
       <Breadcrumb>
         <Breadcrumb.Item className={ styles.itemDetail__breadcrumb } href="/">Inicio</Breadcrumb.Item>
-        <Breadcrumb.Item className={ styles.itemDetail__breadcrumb } href="/productos">
-          Productos
-        </Breadcrumb.Item>
+        <Breadcrumb.Item className={ styles.itemDetail__breadcrumb } href="/">Productos</Breadcrumb.Item>
         <Breadcrumb.Item className={ styles.itemDetail__breadcrumb } active>{ item.name }</Breadcrumb.Item>
       </Breadcrumb>
       <div className={ styles.itemDetail__wrapper }>
@@ -25,7 +23,7 @@ export default function ItemDetail({ item }) {
           <div className={ styles.itemDetail__counter }>
             <ItemCount initial={1} stock={ item.stock } />
             <div className={ styles.itemDetail__add_cart }>
-              <button className='btn btn-info btn-lg btn-block w-100'>Agregar</button>
+              <button className='btn btn-lg btn-block w-100'>Agregar</button>
             </div>
           </div>
           <div className={ styles.itemDetail__description }>

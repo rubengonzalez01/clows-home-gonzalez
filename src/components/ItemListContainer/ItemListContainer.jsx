@@ -3,10 +3,15 @@ import { products } from '../../mock/products';
 import styles from './ItemListContainer.module.scss';
 import ItemList from '../ItemList/ItemList';
 import { Spinner } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 
-export default function ItemListContainer({ title }) {
+export default function ItemListContainer() {
   let [ listProducts, setListProducts ] = useState([]);
   let [ loading, setLoading ] = useState(true);
+
+  
+  const { categoryType } = useParams()
+  let title = categoryType ? categoryType.toUpperCase() : 'LOS MÁS VENDIDOS';
 
   const getProducts = () => {
     return new Promise((resolve, reject) => {
@@ -17,10 +22,16 @@ export default function ItemListContainer({ title }) {
   }
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
+
     getProducts()
       .then(res => {
-        setListProducts(res)
+        if (!categoryType){
+          setListProducts(res)
+        } else {
+          const filteredProducts = res.filter(item => item.category === categoryType);
+          setListProducts(filteredProducts);
+        }
       })
       .catch(error => {
         console.error("Error: " + error)
@@ -28,7 +39,7 @@ export default function ItemListContainer({ title }) {
       .finally(() => {
         setLoading(false);
       });  
-  }, []);
+  }, [categoryType]);
   
 
   return (

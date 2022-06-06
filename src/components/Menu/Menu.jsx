@@ -18,17 +18,17 @@ export default function Menu() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="m-auto">
-          <Nav.Link onClick={ () => { clickHandler('/perros') } } className={ styles.nav_text } >
+          <Nav.Link onClick={ () => { clickHandler('productos/perros') } } className={ styles.nav_text } >
             <FaDog className={ styles.nav_icon } />
             Perros
           </Nav.Link>
-          <Nav.Link onClick={ () => { clickHandler('/gatos') } } className={ styles.nav_text } >
+          <Nav.Link onClick={ () => { clickHandler('productos/gatos') } } className={ styles.nav_text } >
             <FaCat className={ styles.nav_icon } />
             Gatos
           </Nav.Link>
-          <Nav.Link onClick={ () => { clickHandler('/otros') } } className={ `${ styles.nav_text } ${ styles.nav_text_separator }` } >
+          <Nav.Link onClick={ () => { clickHandler('productos/otros') } } className={ `${ styles.nav_text } ${ styles.nav_text_separator }` } >
             <MdPets className={ styles.nav_icon } />
-            Otras
+            Otros
           </Nav.Link>
           <hr />
           <Nav.Link onClick={ () => { clickHandler('/nosotros') } } className={ styles.nav_text } >

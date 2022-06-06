@@ -15,7 +15,8 @@ export const products = [
     image: pic1,
     price: 8908,
     stock: 30,
-    options: 'Hasta 3 cuotas sin interés de $2.969,33' 
+    category: 'perros',
+    options: 'Hasta 3 cuotas sin interés de $2.969,33'
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ export const products = [
     image: pic2,
     price: 3660,
     stock: 22,
+    category: 'gatos',
     options: 'Hasta 3 cuotas sin interés de $1.220' 
   },
   {
@@ -33,6 +35,7 @@ export const products = [
     image: pic3,
     price: 16435,
     stock: 15,
+    category: 'gatos',
     options: 'Hasta 3 cuotas sin interés de $5.478,33' 
   },
   {
@@ -42,6 +45,7 @@ export const products = [
     image: pic4,
     price: 10310,
     stock: 10,
+    category: 'gatos',
     options: 'Hasta 3 cuotas sin interés de $3.436,66' 
   },
   {
@@ -49,8 +53,9 @@ export const products = [
     name: 'JUGUETE CORCHO CON PLUMAS - ECO TOY CANCAT',
     description: '',
     image: pic5,
-    price: 11240,
+    price: 1124,
     stock: 20,
+    category: 'gatos',
     options: 'Hasta 3 cuotas sin interés de $374,66' 
   },
   {
@@ -60,6 +65,7 @@ export const products = [
     image: pic6,
     price: 956,
     stock: 12,
+    category: 'gatos',
     options: 'Hasta 3 cuotas sin interés de $318,66' 
   },
   {
@@ -69,6 +75,7 @@ export const products = [
     image: pic7,
     price: 12208,
     stock: 30,
+    category: 'otros',
     options: 'Hasta 3 cuotas sin interés de $4.069,33' 
   },
   {
@@ -78,6 +85,7 @@ export const products = [
     image: pic8,
     price: 6710,
     stock: 40,
+    category: 'otros',
     options: 'Hasta 3 cuotas sin interés de $2.236,66' 
   },
 ]

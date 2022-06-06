@@ -9,10 +9,10 @@ export default function ItemDetailContainer({ title }) {
   let [ item, setItem ] = useState([]);
   let [ loading, setLoading ] = useState(true);
 
-  const { id } = useParams();
+  const { itemId } = useParams();
 
   const getItem = () => {
-    const selectedItem = products.find(product => product.id == id);
+    const selectedItem = products.find(product => product.id == itemId);
     return new Promise((resolve, reject) => {      
       setTimeout(() => {
         selectedItem ? resolve(selectedItem) : reject('Hubo un problemas al obtener el producto')
