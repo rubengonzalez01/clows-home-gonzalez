@@ -33,13 +33,13 @@ export default function Footer() {
             <Link className={ styles.footer__link } to='nosotros'>
               <span className={ styles.footer__text }>Nosotros</span>
             </Link>
-            <Link className={ styles.footer__link } to='perros'>
+            <Link className={ styles.footer__link } to='productos/perros'>
               <span className={ styles.footer__text }>Perros</span>
             </Link>
-            <Link className={ styles.footer__link } to='gatos'>
+            <Link className={ styles.footer__link } to='productos/gatos'>
               <span className={ styles.footer__text }>Gatos</span>
             </Link>
-            <Link className={ styles.footer__link } to='otros'>
+            <Link className={ styles.footer__link } to='productos/otros'>
               <span className={ styles.footer__text }>Otros</span>
             </Link>
           </div>  

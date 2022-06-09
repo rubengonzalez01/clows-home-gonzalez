@@ -1,8 +1,20 @@
+import { useState } from 'react';
 import styles from './ItemDetail.module.scss';
 import ItemCount from '../ItemCount/ItemCount';
 import { Breadcrumb } from 'react-bootstrap';
 
 export default function ItemDetail({ item }) {
+  let [itemToCart, setItemToCart] = useState({});
+
+  const onAdd = (value) => {
+    const itemWithQuantity = {
+      ...item,
+      quantity: value
+    }
+    setItemToCart(itemWithQuantity);
+    console.log("Item to send to Cart", itemWithQuantity)
+  };
+
   return (
     <div className={ styles.itemDetail }>
       <Breadcrumb>
@@ -21,10 +33,10 @@ export default function ItemDetail({ item }) {
             <span className={ styles.itemDetail__options }>{ item.options }</span>
           </div>
           <div className={ styles.itemDetail__counter }>
-            <ItemCount initial={1} stock={ item.stock } />
-            <div className={ styles.itemDetail__add_cart }>
-              <button className='btn btn-lg btn-block w-100'>Agregar</button>
-            </div>
+            <ItemCount 
+              initial={1} 
+              stock={ item.stock } 
+              addToCart={ onAdd } />
           </div>
           <div className={ styles.itemDetail__description }>
             <h5 className={ styles.itemDetail__description_title }>Descripción</h5>

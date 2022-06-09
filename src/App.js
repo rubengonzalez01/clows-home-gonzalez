@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Detail from './pages/Detail/Detail';
 import Products from './pages/Products/Products';
+import Cart from './pages/Cart/Cart';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='/sucursales' element={<Offices />} />
           <Route path='/login' element={<Login />} />
           <Route path='/productos/:categoryType/:itemId' element={<Detail />} />
+          <Route path='/carrito' element={<Cart />} />
           <Route path='*' element={<Navigate to='/' />} />
         </Routes>          
       </Layout>

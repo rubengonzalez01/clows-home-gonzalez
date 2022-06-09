@@ -23,13 +23,13 @@ export default function FooterSections() {
             <Link className={ styles.footerSections__link } to='nosotros'>
               <span className={ styles.footerSections__text }>Nosotros</span>
             </Link>
-            <Link className={ styles.footerSections__link } to='perros'>
+            <Link className={ styles.footerSections__link } to='productos/perros'>
               <span className={ styles.footerSections__text }>Perros</span>
             </Link>
-            <Link className={ styles.footerSections__link } to='gatos'>
+            <Link className={ styles.footerSections__link } to='productos/gatos'>
               <span className={ styles.footerSections__text }>Gatos</span>
             </Link>
-            <Link className={ styles.footerSections__link } to='otros'>
+            <Link className={ styles.footerSections__link } to='productos/otros'>
               <span className={ styles.footerSections__text }>Otros</span>
             </Link>
           </div>  

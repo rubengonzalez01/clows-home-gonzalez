@@ -1,8 +1,16 @@
 import styles from './CartModal.module.scss';
 import { IoClose } from 'react-icons/io5';
 import { FiShoppingCart } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 
 export default function CartModal(props) {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate('carrito');
+    props.onHide();
+  }
+
   return (
     <>
       {
@@ -33,7 +41,7 @@ export default function CartModal(props) {
                       <h5 className={ styles.cartModal__total_text }>Total: </h5>
                     </div>
                     <div className={ styles.cartModal__button_container }>
-                      <button className='btn btn-secondary btn-lg btn-block'>Comprar</button>
+                      <button onClick={ handleClick } className='btn btn-secondary btn-lg btn-block'>Comprar</button>
                     </div>
                   </div>        
                 </div>

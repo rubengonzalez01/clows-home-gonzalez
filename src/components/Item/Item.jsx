@@ -1,13 +1,25 @@
 import styles from './Item.module.scss';
 import ItemCount from '../ItemCount/ItemCount';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 export default function Item({ product }) {
+  let [itemToCart, setItemToCart] = useState({});
   const navigate = useNavigate();
+
+
+  const onAdd = (value) => {
+    const itemWithQuantity = {
+      ...product,
+      quantity: value
+    }
+    setItemToCart(itemWithQuantity);
+    console.log("Item to send to Cart", itemWithQuantity)
+  };
   
   const handleClick = () => {
     navigate(`/productos/${product.category}/${product.id}`);
-  } 
+  }
 
   return(
     <div className={ styles.item }>
@@ -21,10 +33,10 @@ export default function Item({ product }) {
           <span className={ styles.item__options }>{product.options}</span>
         </div>
         <div className={ styles.item__footer }>
-          <ItemCount initial={1} stock={product.stock} />
-          <div className={ styles.item__add_cart }>
-            <button className='btn btn-lg btn-block w-100'>Agregar</button>
-          </div>
+          <ItemCount 
+            initial={1} 
+            stock={product.stock}
+            addToCart={ onAdd } />
         </div>
       </div>
     </div>
