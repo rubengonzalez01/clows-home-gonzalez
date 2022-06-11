@@ -25,12 +25,12 @@
     padding: 20px 0;
     gap: 8px;
 
-    @media only screen and (min-width: $tablet) and (max-width: $desktop) {
+    @media only screen and (min-width: $tablet) and (max-width: $desktopPlus) {
       grid-template-columns: auto auto auto;
       gap: 15px;
     }
     
-    @media only screen and (min-width: $desktop) {
+    @media only screen and (min-width: $desktopPlus) {
       grid-template-columns: auto auto auto auto;
       gap: 15px;
     }

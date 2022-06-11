@@ -1,0 +1,44 @@
+.itemMiniCard {
+  padding-bottom: 18px;
+  
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr 0.2fr;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__data {
+    display: flex;
+    flex-flow: column wrap;
+    padding-right: 5px;
+  }
+
+  &__title {
+    font-size: 13px;
+  }
+
+  &__counter {
+    width: 100px;
+    height: 30px;
+    margin-bottom: 5px;
+  }
+
+  &__remove {
+    position: relative;
+    top: -7px;
+  }
+
+  &__remove_btn {
+    background-color: transparent;
+    border: none;
+
+    svg {
+      font-size: 18px;
+      color: #e84141;
+    }
+  }
+
+}

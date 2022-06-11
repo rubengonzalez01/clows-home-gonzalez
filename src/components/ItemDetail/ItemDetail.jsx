@@ -1,18 +1,19 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import styles from './ItemDetail.module.scss';
 import ItemCount from '../ItemCount/ItemCount';
 import { Breadcrumb } from 'react-bootstrap';
+import { AppContext } from '../../context/CartContext';
 
 export default function ItemDetail({ item }) {
-  let [itemToCart, setItemToCart] = useState({});
+  const { addItem } = useContext(AppContext);
 
   const onAdd = (value) => {
     const itemWithQuantity = {
       ...item,
       quantity: value
     }
-    setItemToCart(itemWithQuantity);
-    console.log("Item to send to Cart", itemWithQuantity)
+    
+    addItem(itemWithQuantity);
   };
 
   return (

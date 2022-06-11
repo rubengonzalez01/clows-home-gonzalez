@@ -1,10 +1,11 @@
 import styles from './Item.module.scss';
 import ItemCount from '../ItemCount/ItemCount';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useContext } from 'react';
+import { AppContext } from '../../context/CartContext';
 
 export default function Item({ product }) {
-  let [itemToCart, setItemToCart] = useState({});
+  const { addItem } = useContext(AppContext);
   const navigate = useNavigate();
 
 
@@ -13,8 +14,8 @@ export default function Item({ product }) {
       ...product,
       quantity: value
     }
-    setItemToCart(itemWithQuantity);
-    console.log("Item to send to Cart", itemWithQuantity)
+    
+    addItem(itemWithQuantity);
   };
   
   const handleClick = () => {

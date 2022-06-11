@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { BiMinus, BiPlus } from 'react-icons/bi';
+import { Spinner } from 'react-bootstrap';
 import styles from './ItemCount.module.scss';
+import Counter from '../Counter/Counter';
 
 export default function ItemCount ({ initial, stock, addToCart }) {
   let [count, setCount] = useState(initial);
+  let [ loading, setLoading ] = useState(false);
 
   const handleCountPlus = () => {
     if(count < stock){ 
@@ -17,19 +19,29 @@ export default function ItemCount ({ initial, stock, addToCart }) {
     }
   }
 
+  const handleAdd = () => {
+    setLoading(true);
+    setTimeout(() => {
+      addToCart(count)
+      setLoading(false);
+    }, 500)
+  }
+
   return (    
     <div className={ styles.itemCounter }>
-      <div className={ styles.itemCounter__pannel }>
-        <button onClick={handleCountMinus} className={ styles.itemCounter__button }>
-          <BiMinus />
-        </button>
-        <span className={ styles.itemCounter__count }>{count}</span>
-        <button onClick={handleCountPlus} className={ styles.itemCounter__button }>
-          <BiPlus />
-        </button>
+      <div className={ styles.itemCounter__counter }>
+        <Counter count={ count } handleCountPlus={ handleCountPlus } handleCountMinus={ handleCountMinus } />
       </div>
       <div className={ styles.itemCounter__add_cart }>
-        <button onClick={ () => addToCart(count) } className='btn btn-lg btn-block w-100'>Agregar al carrito</button>
+        <button onClick={ handleAdd } className='btn btn-lg btn-block w-100'>
+          { loading ? <div className={ styles.itemCounter__spinner }>
+                          <Spinner variant="light" animation="border" role="status" size="sm">
+                            <span className="visually-hidden">Loading...</span>
+                          </Spinner>
+                        </div>
+                      : 'Agregar al carrito' 
+          }
+        </button>
       </div>
     </div>
   );

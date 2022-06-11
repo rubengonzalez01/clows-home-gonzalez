@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 export default function ItemDetailContainer({ title }) {
   let [ item, setItem ] = useState([]);
   let [ loading, setLoading ] = useState(true);
+  
 
   const { itemId } = useParams();
 

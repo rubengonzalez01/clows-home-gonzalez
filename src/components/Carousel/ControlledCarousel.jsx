@@ -18,7 +18,7 @@ export default function ControlledCarousel() {
   };
 
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect}>
+    <Carousel className={ styles.controlledCarousel } activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
         {
           // eslint-disable-next-line no-restricted-globals
