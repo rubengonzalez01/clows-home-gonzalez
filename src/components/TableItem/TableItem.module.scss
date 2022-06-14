@@ -1,0 +1,31 @@
+@import '../../styles/vars';
+
+.tableItem {
+
+  &__body_data {
+    font-size: 13px;
+    padding: 0 5px 15px 5px;
+  }
+  
+  &__body_img {
+    width: 100px;
+  }
+  
+  &__counter {
+    width: 70px;
+
+    @media only screen and (min-width: $tablet) {
+      width: 100px;
+    }
+  }
+
+  &__remove_btn {
+    background-color: transparent;
+    border: none;
+
+    svg {
+      font-size: 16px;
+      color: #e84141;
+    }
+  }
+}

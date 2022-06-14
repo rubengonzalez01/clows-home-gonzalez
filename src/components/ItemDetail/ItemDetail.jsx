@@ -1,16 +1,16 @@
-import { useContext } from 'react';
 import styles from './ItemDetail.module.scss';
 import ItemCount from '../ItemCount/ItemCount';
 import { Breadcrumb } from 'react-bootstrap';
-import { AppContext } from '../../context/CartContext';
+import { useCartContext } from '../../context/CartContext';
 
 export default function ItemDetail({ item }) {
-  const { addItem } = useContext(AppContext);
+  const { addItem } = useCartContext();
 
   const onAdd = (value) => {
     const itemWithQuantity = {
       ...item,
-      quantity: value
+      quantity: value,
+      total_price: item.price * value
     }
     
     addItem(itemWithQuantity);

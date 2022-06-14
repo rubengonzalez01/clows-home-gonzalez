@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Spinner } from 'react-bootstrap';
 import styles from './ItemCount.module.scss';
 import Counter from '../Counter/Counter';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function ItemCount ({ initial, stock, addToCart }) {
   let [count, setCount] = useState(initial);
@@ -22,13 +23,15 @@ export default function ItemCount ({ initial, stock, addToCart }) {
   const handleAdd = () => {
     setLoading(true);
     setTimeout(() => {
-      addToCart(count)
+      addToCart(count);
+      toast.success('Producto agregado al carrito');
       setLoading(false);
     }, 500)
   }
 
   return (    
     <div className={ styles.itemCounter }>
+      <Toaster position="top-right" />
       <div className={ styles.itemCounter__counter }>
         <Counter count={ count } handleCountPlus={ handleCountPlus } handleCountMinus={ handleCountMinus } />
       </div>

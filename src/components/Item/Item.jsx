@@ -1,18 +1,18 @@
 import styles from './Item.module.scss';
 import ItemCount from '../ItemCount/ItemCount';
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import { AppContext } from '../../context/CartContext';
+import { useCartContext } from '../../context/CartContext';
 
 export default function Item({ product }) {
-  const { addItem } = useContext(AppContext);
+  const { addItem } = useCartContext();
   const navigate = useNavigate();
 
 
   const onAdd = (value) => {
     const itemWithQuantity = {
       ...product,
-      quantity: value
+      quantity: value,
+      total_price: product.price * value
     }
     
     addItem(itemWithQuantity);

@@ -36,8 +36,8 @@ export default function SearchBar() {
             </span>
           </div>
           <div className={ styles.contact }>
-            <a className={ styles.contact_phone } href='tel:0800-111-0202' target='_blank'><BsTelephone /> 0800 111 0202</a>
-            <a className={ styles.contact_phone } href='https://wa.me/5491112345678' target='_blank'><FaWhatsapp /> 11 1234 5678</a>
+            <a className={ styles.contact_phone } href='tel:0800-111-0202' target='_blank' rel="noreferrer"><BsTelephone /> 0800 111 0202</a>
+            <a className={ styles.contact_phone } href='https://wa.me/5491112345678' target='_blank' rel="noreferrer"><FaWhatsapp /> 11 1234 5678</a>
           </div>
         </div>
         <div className={ styles.actions }>

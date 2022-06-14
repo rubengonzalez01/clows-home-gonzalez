@@ -13,7 +13,7 @@ export default function ItemDetailContainer({ title }) {
   const { itemId } = useParams();
 
   const getItem = () => {
-    const selectedItem = products.find(product => product.id == itemId);
+    const selectedItem = products.find(product => product.id === Number(itemId));
     return new Promise((resolve, reject) => {      
       setTimeout(() => {
         selectedItem ? resolve(selectedItem) : reject('Hubo un problemas al obtener el producto')
@@ -22,7 +22,7 @@ export default function ItemDetailContainer({ title }) {
   }
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     getItem()
       .then(res => {
         setItem(res)
@@ -33,6 +33,7 @@ export default function ItemDetailContainer({ title }) {
       .finally(() => {
         setLoading(false);
       });  
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
 

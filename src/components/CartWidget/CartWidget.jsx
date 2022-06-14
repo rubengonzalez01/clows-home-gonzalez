@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { FiShoppingCart } from 'react-icons/fi';
-import { AppContext } from '../../context/CartContext';
+import { useCartContext } from '../../context/CartContext';
 import CartModal from '../CartModal/CartModal';
 import styles from './CartWidget.module.scss';
 
 export default function CartWidget() {
   let [cartVisible, setCartVisible] = useState(false); 
-  const { totalQuantity } = useContext(AppContext);
+  const { totalQuantity } = useCartContext();
 
   const showCart = () => {
     setCartVisible(!cartVisible);

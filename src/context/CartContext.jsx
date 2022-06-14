@@ -1,6 +1,6 @@
-const { useState, createContext } = require("react")
+import { useState, createContext, useContext } from 'react';
 
-const CartContext = ({ children }) => {
+const CartProvider = ({ children }) => {
   const [itemList, setItemList] = useState([]);
 
   const addItem = (item) => {
@@ -8,6 +8,7 @@ const CartContext = ({ children }) => {
       let itemListAux = itemList.slice();
       let idx = itemList.findIndex(prod => prod.id === item.id);
       itemListAux[idx].quantity = itemListAux[idx].quantity + item.quantity;
+      itemListAux[idx].total_price = itemListAux[idx].quantity * itemListAux[idx].price;
       setItemList(itemListAux);
     } else {
       setItemList([...itemList, item]);
@@ -15,7 +16,7 @@ const CartContext = ({ children }) => {
   }
   
   const removeItem = (itemId) => {
-    setItemList( itemList.filter(item => item.id !== itemId));
+    setItemList(itemList.filter(item => item.id !== itemId));
   }
 
   const isInCart = (itemId) => {
@@ -39,32 +40,36 @@ const CartContext = ({ children }) => {
       let itemListAux = itemList.slice();
       let idx = itemList.findIndex(prod => prod.id === item.id);
       itemListAux[idx].quantity = itemListAux[idx].quantity + 1;
+      itemListAux[idx].total_price = itemListAux[idx].quantity * itemListAux[idx].price;
       setItemList(itemListAux);
       setCount(itemListAux[idx].quantity);
     }
   }
 
   const subtractQuantity = (item, setCount) => {
-    if(item.quantity > 0 ){
+    if(item.quantity === 1) {
+      removeItem(item.id);
+    } else {
       let itemListAux = itemList.slice();
       let idx = itemList.findIndex(prod => prod.id === item.id);
       itemListAux[idx].quantity = itemListAux[idx].quantity - 1;
-      if(itemListAux[idx].quantity === 0) {
-        removeItem(item);
-      } else {
-        setItemList(itemListAux);
-        setCount(itemListAux[idx].quantity);
-      }
+      itemListAux[idx].total_price = itemListAux[idx].quantity * itemListAux[idx].price;
+      setItemList(itemListAux);
+      setCount(itemListAux[idx].quantity);
     }
   }
 
   return (
-    <AppContext.Provider value={ {itemList, addItem, totalPrice, totalQuantity, isInCart, clear, removeItem, addQuantity, subtractQuantity} }>
+    <CartContext.Provider value={ {itemList, addItem, totalPrice, totalQuantity, isInCart, clear, removeItem, addQuantity, subtractQuantity} }>
       { children }
-    </AppContext.Provider>
+    </CartContext.Provider>
   );
 }
 
-export default CartContext;
+export default CartProvider;
 
-export const AppContext = createContext();
+export const useCartContext = () => {
+  return useContext(CartContext);
+}
+
+export const CartContext = createContext();

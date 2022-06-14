@@ -10,7 +10,7 @@ import foto6 from '../../assets/carousel/banner3b.webp';
 import styles from './ControlledCarousel.module.scss';
 
 export default function ControlledCarousel() {
-  const [width, height] = useWindowSize();
+  const [width] = useWindowSize();
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
@@ -23,24 +23,24 @@ export default function ControlledCarousel() {
         {
           // eslint-disable-next-line no-restricted-globals
           width < 992 ? 
-            <img className="d-block w-100" src={ foto4 } /> : 
-            <img className="d-block w-100" src={ foto1 } />
+            <img className="d-block w-100" alt='sanicat sale' src={ foto4 } /> : 
+            <img className="d-block w-100" alt='sanicat sale' src={ foto1 } />
         }
       </Carousel.Item>
       <Carousel.Item>
         {
           // eslint-disable-next-line no-restricted-globals
           width < 992 ? 
-            <img className="d-block w-100" src={ foto5 } /> : 
-            <img className="d-block w-100" src={ foto2 } />
+            <img className="d-block w-100" alt='shipping cost' src={ foto5 } /> : 
+            <img className="d-block w-100" alt='shipping cost' src={ foto2 } />
         }
       </Carousel.Item>
       <Carousel.Item>
         {
           // eslint-disable-next-line no-restricted-globals
           width < 992 ? 
-            <img className="d-block w-100" src={ foto6 } /> : 
-            <img className="d-block w-100" src={ foto3 } />
+            <img className="d-block w-100" alt='linda smart' src={ foto6 } /> : 
+            <img className="d-block w-100" alt='linda smart' src={ foto3 } />
         }
       </Carousel.Item>
     </Carousel>

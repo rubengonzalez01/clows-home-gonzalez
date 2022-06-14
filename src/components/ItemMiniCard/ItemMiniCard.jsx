@@ -1,11 +1,11 @@
 import styles from './ItemMiniCard.module.scss';
 import { FaRegTrashAlt } from 'react-icons/fa';
-import { useContext, useState } from 'react';
-import { AppContext } from '../../context/CartContext';
+import { useState } from 'react';
+import { useCartContext } from '../../context/CartContext';
 import Counter from '../Counter/Counter';
 
 export default function ItemMiniCard({ item }){
-  const { removeItem, addQuantity, subtractQuantity } = useContext(AppContext);
+  const { removeItem, addQuantity, subtractQuantity } = useCartContext();
   let [count, setCount] = useState(item.quantity);
 
   const handleCountPlus = () => {

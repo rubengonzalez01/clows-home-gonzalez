@@ -60,7 +60,7 @@ export default function Footer() {
           </div>
           <div className={ styles.footer__rights_author }>
             <span className={ styles.footer__rights_text }>Desarrollado por: 
-              <a href="https://www.linkedin.com/in/ing-ruben-j-gonzalez/" target='_blank'> Rubén González</a>
+              <a href="https://www.linkedin.com/in/ing-ruben-j-gonzalez/" target='_blank' rel="noreferrer"> Rubén González</a>
             </span>
           </div>
         </div>        

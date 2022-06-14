@@ -9,12 +9,12 @@ import './App.css';
 import Detail from './pages/Detail/Detail';
 import Products from './pages/Products/Products';
 import Cart from './pages/Cart/Cart';
-import CartContext from './context/CartContext';
+import CartProvider from './context/CartContext';
 
 function App() {
   return (
     <>
-      <CartContext>
+      <CartProvider>
         <Layout>
           <Routes>
             <Route path='/' element={<Home />} />
@@ -27,7 +27,7 @@ function App() {
             <Route path='*' element={<Navigate to='/' />} />
           </Routes>          
         </Layout>
-      </CartContext>
+      </CartProvider>
     </>
   );
 }

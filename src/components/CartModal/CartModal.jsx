@@ -2,14 +2,13 @@ import styles from './CartModal.module.scss';
 import { IoClose } from 'react-icons/io5';
 import { FiShoppingCart } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import { AppContext } from '../../context/CartContext';
+import { useCartContext } from '../../context/CartContext';
 import ItemMiniCard from '../ItemMiniCard/ItemMiniCard';
 
 
 export default function CartModal(props) {
   const navigate = useNavigate();
-  const { itemList, totalPrice } = useContext(AppContext);
+  const { itemList, totalPrice } = useCartContext();
 
   const handleClick = () => {
     navigate('carrito');
