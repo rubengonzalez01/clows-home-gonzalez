@@ -8,9 +8,10 @@ import ItemMiniCard from '../ItemMiniCard/ItemMiniCard';
 
 export default function CartModal(props) {
   const navigate = useNavigate();
-  const { itemList, totalPrice } = useCartContext();
+  const { itemList, totalPrice, setCheckout } = useCartContext();
 
   const handleClick = () => {
+    setCheckout(true);
     navigate('carrito');
     props.onHide();
   }

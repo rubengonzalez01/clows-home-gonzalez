@@ -1,10 +1,17 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useCartContext } from '../../context/CartContext';
+import CartTableSummary from '../CartTableSummary/CartTableSummary';
 import TableItem from '../TableItem/TableItem';
 import styles from './CartTable.module.scss';
 
 export default function CartTable() {
-  const { itemList, totalPrice } = useCartContext();
+  const navigate = useNavigate();
+  const { itemList, setCheckout } = useCartContext();
+
+  const handleClick = () => {
+    setCheckout(false);
+    navigate('/');
+  }
 
   return (
     <div className={ `container ${ styles.cartTable }`}>
@@ -32,30 +39,7 @@ export default function CartTable() {
                   </tbody>
                 </table>
               </div>
-              <div className={ styles.cartTable__total }>
-                <div className={ styles.cartTable__total_container }>
-                  <div className={ styles.cartTable__values_wrapper }>
-                    <span className={ styles.cartTable__values_subtotal }>Subtotal</span>
-                    <span className={ styles.cartTable__values_subtotal }>${ totalPrice() }</span>
-                  </div>
-                  <div className={ styles.cartTable__values_wrapper }>
-                    <span className={ styles.cartTable__values_subtotal }>Gastos de envío</span>
-                    <span className={ styles.cartTable__values_subtotal }>Gratis</span>
-                  </div>
-                  <div className={ styles.cartTable__values_wrapper_total }>
-                    <span className={ styles.cartTable__values_total }>TOTAL</span>
-                    <span className={ styles.cartTable__values_total }>${ totalPrice() }</span>
-                  </div>
-                  <div className={ styles.cartTable__button_container }>
-                    <button className={`btn btn-lg btn-block w-100 ${ styles.cartTable__button_primary }`}>Procesar Compra</button>
-                  </div>
-                  <div className={ styles.cartTable__button_container }>
-                    <Link to='/'>
-                      <button className={`btn btn-lg btn-block w-100 ${ styles.cartTable__button_secondary }`}>Seguir Comprando</button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
+              <CartTableSummary />              
             </div>
 
       :     <div className={ styles.cartTable__noElements }>
@@ -64,9 +48,7 @@ export default function CartTable() {
                 <span>Para seguir comprando, navegar por las categorías en el sitio, o busque su producto.</span>
               </div>
               <div className={ styles.cartTable__button_container }>
-                <Link to='/'>
-                  <button className={`btn btn-lg btn-block ${ styles.cartTable__button_primary }`}>Elegir productos</button>
-                </Link>
+                <button onClick={ handleClick } className={`btn btn-lg btn-block ${ styles.cartTable__button_primary }`}>Elegir productos</button>
               </div>
             </div>
 

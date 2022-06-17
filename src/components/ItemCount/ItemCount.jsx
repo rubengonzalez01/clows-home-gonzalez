@@ -31,7 +31,7 @@ export default function ItemCount ({ initial, stock, addToCart }) {
 
   return (    
     <div className={ styles.itemCounter }>
-      <Toaster position="top-right" />
+      <Toaster position='bottom-right' />
       <div className={ styles.itemCounter__counter }>
         <Counter count={ count } handleCountPlus={ handleCountPlus } handleCountMinus={ handleCountMinus } />
       </div>
