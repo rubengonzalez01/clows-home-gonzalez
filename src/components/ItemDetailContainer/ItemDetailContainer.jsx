@@ -1,31 +1,26 @@
 import { useState, useEffect } from 'react';
-import { products } from '../../mock/products';
 import styles from './ItemDetailContainer.module.scss';
-import { Spinner } from 'react-bootstrap';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../firebase/config';
+import AppSpinner from '../AppSpinner/AppSpinner';
 
-export default function ItemDetailContainer({ title }) {
+export default function ItemDetailContainer() {
   let [ item, setItem ] = useState([]);
   let [ loading, setLoading ] = useState(true);
   
 
   const { itemId } = useParams();
 
-  const getItem = () => {
-    const selectedItem = products.find(product => product.id === Number(itemId));
-    return new Promise((resolve, reject) => {      
-      setTimeout(() => {
-        selectedItem ? resolve(selectedItem) : reject('Hubo un problemas al obtener el producto')
-      }, 2000);
-    });
-  }
-
   useEffect(() => {
     setLoading(true);
-    getItem()
-      .then(res => {
-        setItem(res)
+    // creo la referencia
+    const docRef = doc(db, 'products', itemId);
+    // llamo a firestore
+    getDoc(docRef)
+      .then(doc => {
+        setItem({id: doc.id, ...doc.data()});
       })
       .catch(error => {
         console.error("Error: " + error)
@@ -41,13 +36,8 @@ export default function ItemDetailContainer({ title }) {
     <div className="d-flex flex-column">
       <div className={ `container ${ styles.itemDetailContainer }` }>
         {
-          loading ? <div className={ styles.itemDetailContainer__spinner }>
-                      <Spinner variant="secondary" animation="border" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                      </Spinner>
-                    </div>
-                  : 
-                    <ItemDetail item={item} />                    
+          loading ? <AppSpinner variant='secondary' withClass={true} />
+                  : <ItemDetail item={item} />                    
         }
       </div>
     </div>

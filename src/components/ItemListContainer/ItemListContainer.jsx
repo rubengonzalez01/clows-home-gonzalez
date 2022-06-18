@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { products } from '../../mock/products';
 import styles from './ItemListContainer.module.scss';
 import ItemList from '../ItemList/ItemList';
-import { Spinner } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+import { collection, getDocs, query, where } from 'firebase/firestore'; 
+import { db } from '../../firebase/config';
+import AppSpinner from '../AppSpinner/AppSpinner';
 
 export default function ItemListContainer() {
   let [ listProducts, setListProducts ] = useState([]);
@@ -13,25 +14,22 @@ export default function ItemListContainer() {
   const { categoryType } = useParams()
   let title = categoryType ? categoryType.toUpperCase() : 'LOS MÁS VENDIDOS';
 
-  const getProducts = () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        products ? resolve(products) : reject('Hubo un problemas al obtener los productos')
-      }, 2000);
-    });
-  }
-
   useEffect(() => {
     setLoading(true);
-
-    getProducts()
-      .then(res => {
-        if (!categoryType){
-          setListProducts(res)
-        } else {
-          const filteredProducts = res.filter(item => item.category === categoryType);
-          setListProducts(filteredProducts);
-        }
+    // arma la referencia a la db
+    const productsRef = collection(db, 'products');
+    //query de busqueda
+    const q = categoryType ? query(productsRef, where('category','==', categoryType)) : productsRef;
+    // llama a firestore
+    getDocs(q)
+      .then(resp => {
+        const newItems = resp.docs.map(doc => {
+          return {
+            id: doc.id,
+            ...doc.data()
+          }
+        });
+        setListProducts(newItems);
       })
       .catch(error => {
         console.error("Error: " + error)
@@ -50,13 +48,8 @@ export default function ItemListContainer() {
       <div className={ `container ${styles.itemContainer}` }>
         <div className={ styles.itemContainer__group }>
         {
-          loading ? <div className={ styles.itemContainer__spinner }>
-                      <Spinner variant="secondary" animation="border" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                      </Spinner>
-                    </div>
-                  : 
-                    <ItemList listProducts={listProducts} />                    
+          loading ? <AppSpinner variant='secondary' withClass={true} />
+                  : <ItemList listProducts={listProducts} />                    
         }
         </div>
       </div>
