@@ -2,6 +2,7 @@ import { useState, createContext, useContext, useEffect } from 'react';
 
 const CartProvider = ({ children }) => {
   const [itemList, setItemList] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
   const [checkout, setCheckout] = useState(false);
   
   const addItem = (item) => {
@@ -87,7 +88,9 @@ const CartProvider = ({ children }) => {
           addQuantity, 
           subtractQuantity,
           checkout,
-          setCheckout
+          setCheckout,
+          searchQuery,
+          setSearchQuery
         } 
     }>
       { children }

@@ -15,7 +15,7 @@ export default function CartTable() {
 
   return (
     <div className={ `container ${ styles.cartTable }`}>
-      <h3 className={ styles.cartTable__title }>CARRITO DE COMPRAS</h3>
+      <h3 className={ styles.cartTable__title }>Carrito de Compras</h3>
       {
         itemList.length > 0 ?      
             <div className={ styles.cartTable__withElements }>      

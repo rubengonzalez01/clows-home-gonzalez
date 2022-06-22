@@ -5,7 +5,8 @@ import Detail from "../pages/Detail/Detail";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Products from "../pages/Products/Products";
-import Offices from '../pages/Offices/Offices';
+import Search from "../pages/Search/Search";
+import Stores from '../pages/Stores/Stores';
 
 export default function PublicRoutes() {
   return (
@@ -14,9 +15,10 @@ export default function PublicRoutes() {
         <Route path='/' element={<Home />} />
         <Route path='/productos/:categoryType' element={<Products />} />
         <Route path='/nosotros' element={<About />} />
-        <Route path='/sucursales' element={<Offices />} />
+        <Route path='/sucursales' element={<Stores />} />
         <Route path='/login' element={<Login />} />
         <Route path='/productos/:categoryType/:itemId' element={<Detail />} />
+        <Route path='/productos' element={<Search />} />
         <Route path='*' element={<Navigate to='/' />} />
       </Routes>          
     </Layout>

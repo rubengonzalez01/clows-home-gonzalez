@@ -1,18 +1,26 @@
 import { useState, useEffect } from 'react';
 import styles from './ItemListContainer.module.scss';
 import ItemList from '../ItemList/ItemList';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { collection, getDocs, query, where } from 'firebase/firestore'; 
 import { db } from '../../firebase/config';
 import AppSpinner from '../AppSpinner/AppSpinner';
+import { useCartContext } from '../../context/CartContext';
 
 export default function ItemListContainer() {
   let [ listProducts, setListProducts ] = useState([]);
   let [ loading, setLoading ] = useState(true);
+  const { searchQuery } = useCartContext();
+  const location = useLocation();
 
-  
-  const { categoryType } = useParams()
-  let title = categoryType ? categoryType.toUpperCase() : 'LOS MÁS VENDIDOS';
+  const { categoryType } = useParams();
+
+  let title = '';
+  if(categoryType) {
+    title = CATEGORY[categoryType];
+  } else {
+    title = location.pathname === '/productos' ? 'Resultados de la búsqueda' : 'Los más pedidos';
+  }
 
   useEffect(() => {
     setLoading(true);
@@ -23,12 +31,28 @@ export default function ItemListContainer() {
     // llama a firestore
     getDocs(q)
       .then(resp => {
-        const newItems = resp.docs.map(doc => {
-          return {
-            id: doc.id,
-            ...doc.data()
-          }
-        });
+        let newItems = [];
+
+        if(location.pathname !== '/productos'){
+          newItems = resp.docs.map(doc => {
+            return {
+              id: doc.id,
+              ...doc.data()
+            }
+          })
+        } else {
+          newItems = resp.docs.filter(doc => 
+            doc.data().name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            doc.data().category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            doc.data().description.toLowerCase().includes(searchQuery.toLowerCase())
+          )
+          .map(doc => {
+            return {
+              id: doc.id,
+              ...doc.data()
+            }
+          })
+        }
         setListProducts(newItems);
       })
       .catch(error => {
@@ -37,8 +61,8 @@ export default function ItemListContainer() {
       .finally(() => {
         setLoading(false);
       });  
-  }, [categoryType]);
-  
+      // eslint-disable-next-line
+  }, [categoryType, searchQuery]);
 
   return (
     <div className="d-flex flex-column">
@@ -55,4 +79,10 @@ export default function ItemListContainer() {
       </div>
     </div>
   );
+}
+
+export const CATEGORY = {
+  perros: 'Perros',
+  gatos: 'Gatos',
+  otros: 'Otros'
 }

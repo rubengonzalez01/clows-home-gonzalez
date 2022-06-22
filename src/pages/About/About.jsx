@@ -1,8 +1,10 @@
+import AboutInfo from "../../components/AboutInfo/AboutInfo";
+
 
 export default function About() {
-    return(
-      <>
-        <h1>About is working...</h1>
-      </>
-    );
-  }
+  return(
+    <div className={`pt-4 pb-5`}>
+      <AboutInfo />      
+    </div>
+  );
+}

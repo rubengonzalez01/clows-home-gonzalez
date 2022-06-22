@@ -1,0 +1,82 @@
+@import '../../styles/vars';
+
+.aboutInfo {
+
+  &__title {
+    font-size: 28px;
+    padding-bottom: 25px;
+    font-weight: 600;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 50px;
+
+    @media only screen and (min-width: $desktop) {
+      flex-direction: row;
+    }
+  }
+
+  &__image {
+    padding: 10px 50px;
+  }
+
+  &__body {
+    padding: 10px;
+  }
+
+  &__intro {
+    font-size: 17px;
+    line-height: 26px;
+    margin-bottom: 1.5rem;
+    color: $principal;
+  }
+
+  &__text_container {
+    margin-bottom: 1.5rem;
+  }
+
+  &__group_block {
+    padding: 10px;
+  }
+
+  &__title_descr {
+    font-weight: 600;
+    color: $principal;
+  }
+
+  &__description {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  &__group {
+    margin-bottom: 2.5rem;
+    margin-top: 1.5rem;
+  }
+
+  &__text_group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #e0d8d8;
+    border-radius: 5px;
+    box-shadow: 0px 1px 12px #d2d2d2;
+
+    @media only screen and (min-width: $desktop){
+      flex-direction: row;
+    }
+  }
+
+  &__text_group_title {
+    text-align: center;
+  }
+
+  &__description_center {
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+  }
+}

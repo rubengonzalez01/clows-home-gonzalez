@@ -10,7 +10,7 @@ export default function PurchaceOptions() {
         <div className={ styles.purchaceOptions__option }>
           <IoStorefront />
           <div className={ styles.purchaceOptions__description }>
-            <span>Retiro gratis en nuestras sucursales</span>
+            <span>Retiro y envíos gratis</span>
           </div>
         </div>
         <div className={ styles.purchaceOptions__option }>

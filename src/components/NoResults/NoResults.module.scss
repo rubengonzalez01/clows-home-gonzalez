@@ -1,0 +1,21 @@
+.noResults {
+  display: flex;
+  justify-content: center;
+  padding-top: 52px;
+
+  &__detail {
+    padding: 15px;
+    font-weight: 200;
+    
+    h1 {
+      font-size: 17px;
+      font-weight: 400;
+    }
+  
+    ul{
+      padding: 15px;
+    }
+  }
+
+
+}

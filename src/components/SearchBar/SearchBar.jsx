@@ -4,12 +4,23 @@ import { useNavigate } from 'react-router-dom';
 import styles from './SearchBar.module.scss';
 import logo from '../../assets/logo/logo.svg';
 import CartWidget from '../CartWidget/CartWidget';
+import { useState } from 'react';
+import { useCartContext } from '../../context/CartContext';
 
 
 export default function SearchBar() {
   const navigate = useNavigate();
+  const { setSearchQuery } = useCartContext();
+  const [value, setValue] = useState('');
 
-  const clickHandler = (path) => {
+  const searchHandler = (e) => {
+    if ((e.type === 'keypress' && e.key === 'Enter') || e.type === 'click') {
+      setSearchQuery(value);
+      navigateHandler(`productos?search=${value}`);
+    }
+  }
+
+  const navigateHandler = (path) => {
     navigate(path);
   }
 
@@ -18,18 +29,25 @@ export default function SearchBar() {
       <div className={ styles.search_bar }>
         <div className={ styles.logo_container }>
           <img 
-            onClick={ () => { clickHandler('/') } }
+            onClick={ () => { navigateHandler('/') } }
             className={ styles.logo } 
             src={ logo } 
-            alt="clow's home logo" 
-            placeholder='Buscar...'/>
+            alt="clow's home logo"/>
         </div>
         <div className={ styles.central_container }>
           <div className={ styles.search_wrapper }>
-            <input className={ styles.input } type="text" placeholder='Buscar...'/>
+            <input 
+              className={ styles.input } 
+              type="text" 
+              value={ value }
+              onChange={(e) => {
+                setValue(e.target.value)
+              }}
+              onKeyPressCapture={ searchHandler }
+              placeholder='Buscar...'/>
             <span>
               <div>
-                <button className={ styles.button_search }>
+                <button onClick={ searchHandler } className={ styles.button_search }>
                   <BsSearch />
                 </button>
               </div>
@@ -41,7 +59,7 @@ export default function SearchBar() {
           </div>
         </div>
         <div className={ styles.actions }>
-          <button onClick={ () => { clickHandler('/login') } } className={ styles.action }><FaRegUser />Mi Cuenta</button>
+          <button onClick={ () => { navigateHandler('/login') } } className={ styles.action }><FaRegUser />Mi Cuenta</button>
           <CartWidget />
         </div>
       </div>
