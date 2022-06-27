@@ -41,19 +41,14 @@
       font-weight: 600;
       font-size: 18px;
 
-      &:hover{
-        background-color: #c9a35f;
-        color: #fff;
-        border: none;
-      }
-
-      &:focus {
+      &:hover, &:focus, &:disabled {
         background-color: #c9a35f;
         color: #fff;
         border: none;
         outline: none;
-        box-shadow: none;
+        box-shadow: none;        
       }
+
     }
   }
 

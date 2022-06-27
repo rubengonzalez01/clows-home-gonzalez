@@ -36,7 +36,10 @@ export default function ItemCount ({ initial, stock, addToCart }) {
         <Counter count={ count } handleCountPlus={ handleCountPlus } handleCountMinus={ handleCountMinus } />
       </div>
       <div className={ styles.itemCounter__add_cart }>
-        <button onClick={ handleAdd } className='btn btn-lg btn-block w-100'>
+        <button 
+          onClick={ handleAdd } 
+          disabled={ loading }
+          className='btn btn-lg btn-block w-100'>
           { loading ? <AppSpinner variant='light' size='sm' withClass={false}/>
                     : 'Agregar al carrito' 
           }

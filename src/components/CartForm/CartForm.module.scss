@@ -1,0 +1,75 @@
+@import '../../styles/vars';
+
+.cartForm {
+  margin-bottom: 2.5rem;
+
+  &__title {
+    font-weight: 600;
+  }
+
+  &__spinner_container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__spinner {
+    position: absolute;
+  }
+
+  &__data {
+    margin: 20px 0 30px 0;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media screen and (min-width: $tablet) {
+      flex-direction: row;
+    }
+  }
+
+  &__label {
+    width: 160px;
+  }
+
+  &__input_data {
+    height: 35px;
+    width: 250px;
+    border-radius: 5px;
+    margin-right: 25px;
+  }
+
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+  }
+
+  input[type=number] { -moz-appearance:textfield; }
+
+  &__button_primary {
+    background-color: $secondary;
+    color: #fff;
+    border: 1px solid $secondary;
+    font-weight: 600;
+    font-size: 18px;
+    width: 200px;
+
+    &:hover, &:focus, &:disabled{
+      background-color: #c9a35f;
+      color: #fff;
+      border: 1px solid $secondary;
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  &__alert {
+    color: #ee3e4e;
+    border-color: #ee3e4e;
+  }
+}

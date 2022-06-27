@@ -7,9 +7,13 @@ export default function CartTableSummary() {
   const navigate = useNavigate();
   const { totalPrice, setCheckout, clear } = useCartContext();
 
-  const handleClick = () => {
+  const goToHome = () => {
     setCheckout(false);
     navigate('/');
+  }
+
+  const goToForm = () => {
+    navigate('/checkout/form');
   }
 
   return (
@@ -33,10 +37,10 @@ export default function CartTableSummary() {
           <span className={ styles.cartTableSummary__values_total }>${ totalPrice() }</span>
         </div>
         <div className={ styles.cartTableSummary__button_container }>
-          <button className={`btn btn-lg btn-block w-100 ${ styles.cartTableSummary__button_primary }`}>Procesar Compra</button>
+          <button onClick={ goToForm } className={`btn btn-lg btn-block w-100 ${ styles.cartTableSummary__button_primary }`}>Procesar Compra</button>
         </div>
         <div className={ styles.cartTableSummary__button_container }>
-          <button onClick={ handleClick } className={`btn btn-lg btn-block w-100 ${ styles.cartTableSummary__button_secondary }`}>Seguir Comprando</button>
+          <button onClick={ goToHome } className={`btn btn-lg btn-block w-100 ${ styles.cartTableSummary__button_secondary }`}>Seguir Comprando</button>
         </div>
       </div>
     </div>

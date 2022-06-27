@@ -1,0 +1,63 @@
+@import '../../styles/vars';
+
+.purchaseSummary {
+  margin-bottom: 2.5rem;
+
+  &__title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  &__item_container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 310px;
+  }
+
+  &__total_container {
+    width: 100%;
+    padding-top: 1.5rem;
+
+  }
+
+  &__values_wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 16px;
+  }
+
+  &__values_wrapper_total {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0 22px 0;
+    border-top: 1px solid $principal;
+  }
+
+  &__values_subtotal {
+    font-size: 14px;
+  }
+
+  &__values_total {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  &__button_secondary {
+    background-color: transparent;
+    color: $secondary;
+    border: 1px solid $secondary;
+    font-weight: 600;
+    font-size: 18px;
+
+    &:hover{
+      color: #c9a35f;
+    }
+
+    &:focus {
+      color: #c9a35f;
+      border: 1px solid $secondary;
+      outline: none;
+      box-shadow: none;
+    }
+  }
+}

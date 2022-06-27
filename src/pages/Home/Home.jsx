@@ -1,17 +1,14 @@
 import ControlledCarousel from "../../components/Carousel/ControlledCarousel";
 import ItemListContainer from "../../components/ItemListContainer/ItemListContainer";
-import PurchaceOptions from "../../components/PurchaceOptions/PurchaceOptions";
+import PurchaseOptions from "../../components/PurchaseOptions/PurchaseOptions";
 
 export default function Home() {
-
-  const title = 'LOS MÁS VENDIDOS';
-
   return(
     <>
       <ControlledCarousel />
-      <PurchaceOptions />
+      <PurchaseOptions />
       <div className="pt-4 pb-5">
-        <ItemListContainer title={ title }/>
+        <ItemListContainer />
       </div>
     </>
   );

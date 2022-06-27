@@ -12,7 +12,7 @@ export default function CartModal(props) {
 
   const handleClick = () => {
     setCheckout(true);
-    navigate('carrito');
+    navigate('checkout/carrito');
     props.onHide();
   }
 

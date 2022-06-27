@@ -1,4 +1,4 @@
-import styles from './PurchaceOptions.module.scss';
+import styles from './PurchaseOptions.module.scss';
 import { IoStorefront } from 'react-icons/io5';
 import { FaShippingFast } from 'react-icons/fa';
 import { MdPayment } from 'react-icons/md';
