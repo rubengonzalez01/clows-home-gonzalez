@@ -6,12 +6,25 @@ import logo from '../../assets/logo/logo.svg';
 import CartWidget from '../CartWidget/CartWidget';
 import { useState } from 'react';
 import { useCartContext } from '../../context/CartContext';
+import LoginModal from '../LoginModal/LoginModal';
 
 
 export default function SearchBar() {
   const navigate = useNavigate();
   const { setSearchQuery } = useCartContext();
   const [value, setValue] = useState('');
+
+  const [show, setShow] = useState(false);
+  const [option, setOption] = useState(true);
+
+  const handleClose = () => {
+    setOption(true);
+    setShow(false);
+  }
+  
+  const handleShow = () => {
+    setShow(true)
+  };
 
   const searchHandler = (e) => {
     if ((e.type === 'keypress' && e.key === 'Enter') || e.type === 'click') {
@@ -59,10 +72,11 @@ export default function SearchBar() {
           </div>
         </div>
         <div className={ styles.actions }>
-          <button onClick={ () => { navigateHandler('/login') } } className={ styles.action }><FaRegUser />Mi Cuenta</button>
+          <button onClick={ handleShow } className={ styles.action }><FaRegUser />Mi Cuenta</button>
           <CartWidget />
         </div>
       </div>
+      <LoginModal show={show} hide={handleClose} option={option} setOption={setOption}/>
     </>
   );
 }

@@ -6,12 +6,12 @@
   align-items: center;
   padding-top: 1.5rem;
 
-  @media only screen and (min-width: $desktop) {
+  @media only screen and (min-width: $tablet) {
     height: 450px;
   }
 
   svg {
-    color: #29c829;
+    color: $success;
     font-size: 70px;
   }
 
@@ -30,14 +30,14 @@
 
   &__button_primary {
     background-color: $secondary;
-    color: #fff;
+    color: $white;
     border: 1px solid $secondary;
     font-weight: 600;
     font-size: 18px;
 
     &:hover, &:focus{
-      background-color: #c9a35f;
-      color: #fff;
+      background-color: $tertiary;
+      color: $white;
       border: 1px solid $secondary;
       outline: none;
       box-shadow: none;

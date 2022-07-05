@@ -53,15 +53,15 @@
 
   &__button_primary {
     background-color: $secondary;
-    color: #fff;
+    color: $white;
     border: 1px solid $secondary;
     font-weight: 600;
     font-size: 18px;
     width: 200px;
 
     &:hover, &:focus, &:disabled{
-      background-color: #c9a35f;
-      color: #fff;
+      background-color: $tertiary;
+      color: $white;
       border: 1px solid $secondary;
       outline: none;
       box-shadow: none;
@@ -69,7 +69,7 @@
   }
 
   &__alert {
-    color: #ee3e4e;
-    border-color: #ee3e4e;
+    color: $alert;
+    border-color: $alert;
   }
 }

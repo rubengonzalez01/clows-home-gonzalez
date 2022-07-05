@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AppSpinner from '../AppSpinner/AppSpinner';
 import toast, { Toaster } from 'react-hot-toast';
+import { useAuthContext } from '../../context/AuthContext';
 
 const schema = Yup.object().shape({
     name: Yup.string()
@@ -33,6 +34,7 @@ const schema = Yup.object().shape({
 
 export default function CartForm() {
   const { itemList, totalPrice, clear } = useCartContext();
+  const { user } = useAuthContext();
   const [orderId, setOrderId] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -70,9 +72,10 @@ export default function CartForm() {
       addDoc(ordersRef, newOrder)
         .then((doc) => {
             batch.commit();
-            setOrderId(doc.id);
             setLoading(false);
             clear();
+            setOrderId(doc.id);
+            goToStatus(doc.id);
         })
     } else {
         setLoading(false);
@@ -81,8 +84,8 @@ export default function CartForm() {
     
   }
 
-  if (orderId) {
-    navigate(`/checkout/status/${ orderId }`);
+  const goToStatus = (id) => {
+    navigate(`/checkout/status/${ id }`);
   }
 
   return (
@@ -92,7 +95,7 @@ export default function CartForm() {
       <Toaster position='top-center' />
       <div>
         <Formik
-          initialValues={{ name: '', lastname: '', dni: '', email: '', address: '' }}
+          initialValues={{ name: '', lastname: '', dni: '', email: user, address: '' }}
           validationSchema={ schema }
           onSubmit={ createOrder }
           >
@@ -163,7 +166,7 @@ export default function CartForm() {
                         onChange={ formik.handleChange }
                         onBlur={ formik.handleBlur }
                         value={ formik.values.email }
-                        disabled={ loading }
+                        disabled={ loading || user }
                       />
                       { formik.errors.email && formik.touched.email && <small className={ styles.cartForm__alert }>{ formik.errors.email }</small> }
                     </div>

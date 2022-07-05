@@ -1,3 +1,5 @@
+@import '../../styles/vars';
+
 .itemMiniCard {
   padding-bottom: 18px;
   
@@ -37,7 +39,7 @@
 
     svg {
       font-size: 16px;
-      color: #e84141;
+      color: $delete;
     }
   }
 

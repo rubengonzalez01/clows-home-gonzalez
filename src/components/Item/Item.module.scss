@@ -5,7 +5,7 @@
 
   &__wrapper {
     border-radius: 10px;
-    border: 1px solid #cdc5c5;
+    border: 1px solid $grey3;
     padding: 6px;
     display: flex;
     flex-flow: column wrap;
@@ -20,7 +20,7 @@
   }
 
   &__wrapper:hover {
-    border: 1px solid #9d9c9c;
+    border: 1px solid $grey4;
     box-shadow: 0px 0px 3px;
   }
 
@@ -59,7 +59,7 @@
   &__options {
     font-size: 12px;
     font-weight: 600;
-    color: #656363;
+    color: $options;
 
     @media only screen and (min-width: $tablet) {
       font-size: 13px;
@@ -69,7 +69,7 @@
   &__footer{
     padding-top: 10px;
     width: 100%;
-    border-top: 1px solid #e6e6e6;
+    border-top: 1px solid $grey1;
   }
 
   &__add_cart {
@@ -78,22 +78,17 @@
 
     button {
       background-color: $secondary;
-      color: #fff;
+      color: $white;
       border: none;
 
-      &:hover {
-        background-color: #c9a35f;
-        color: #fff;
-        border: none;
-      }
-
-      &:focus {
-        background-color: #c9a35f;
-        color: #fff;
+      &:hover, &:focus {
+        background-color: $tertiary;
+        color: $white;
         border: none;
         outline: none;
         box-shadow: none;
       }
+
     }
   }
 }

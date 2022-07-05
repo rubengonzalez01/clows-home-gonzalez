@@ -18,7 +18,7 @@
     padding: 10px 5px;
     background-color: $principal;
     font-size: 13px;
-    color: #fff;
+    color: $white;
 
     &:first-child {
       padding-left: 15px;
@@ -27,20 +27,14 @@
 
   &__button_primary {
     background-color: $secondary;
-    color: #fff;
+    color: $white;
     border: 1px solid $secondary;
     font-weight: 600;
     font-size: 18px;
 
-    &:hover{
+    &:hover, &:focus {
       background-color: #c9a35f;
-      color: #fff;
-      border: 1px solid $secondary;
-    }
-
-    &:focus {
-      background-color: #c9a35f;
-      color: #fff;
+      color: $white;
       border: 1px solid $secondary;
       outline: none;
       box-shadow: none;

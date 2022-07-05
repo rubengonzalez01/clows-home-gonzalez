@@ -37,10 +37,10 @@ export default function CartTableSummary() {
           <span className={ styles.cartTableSummary__values_total }>${ totalPrice() }</span>
         </div>
         <div className={ styles.cartTableSummary__button_container }>
-          <button onClick={ goToForm } className={`btn btn-lg btn-block w-100 ${ styles.cartTableSummary__button_primary }`}>Procesar Compra</button>
+          <button onClick={ goToForm } className={`btn btn-lg btn-block w-100 ${ styles.cartTableSummary__button_primary }`}>Procesar compra</button>
         </div>
         <div className={ styles.cartTableSummary__button_container }>
-          <button onClick={ goToHome } className={`btn btn-lg btn-block w-100 ${ styles.cartTableSummary__button_secondary }`}>Seguir Comprando</button>
+          <button onClick={ goToHome } className={`btn btn-lg btn-block w-100 ${ styles.cartTableSummary__button_secondary }`}>Seguir comprando</button>
         </div>
       </div>
     </div>

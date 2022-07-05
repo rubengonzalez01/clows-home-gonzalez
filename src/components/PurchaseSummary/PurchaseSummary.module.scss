@@ -50,11 +50,11 @@
     font-size: 18px;
 
     &:hover{
-      color: #c9a35f;
+      color: $tertiary;
     }
 
     &:focus {
-      color: #c9a35f;
+      color: $tertiary;
       border: 1px solid $secondary;
       outline: none;
       box-shadow: none;

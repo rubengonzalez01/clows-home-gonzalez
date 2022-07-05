@@ -46,24 +46,19 @@
 
   &__button_primary {
     background-color: $secondary;
-    color: #fff;
+    color: $white;
     border: 1px solid $secondary;
     font-weight: 600;
     font-size: 18px;
 
-    &:hover{
-      background-color: #c9a35f;
-      color: #fff;
-      border: 1px solid $secondary;
-    }
-
-    &:focus {
-      background-color: #c9a35f;
-      color: #fff;
+    &:hover, &:focus {
+      background-color: $tertiary;
+      color: $white;
       border: 1px solid $secondary;
       outline: none;
       box-shadow: none;
     }
+
   }
 
   &__button_secondary {
@@ -74,11 +69,11 @@
     font-size: 18px;
 
     &:hover{
-      color: #c9a35f;
+      color: $tertiary;
     }
 
     &:focus {
-      color: #c9a35f;
+      color: $tertiary;
       border: 1px solid $secondary;
       outline: none;
       box-shadow: none;
@@ -98,13 +93,13 @@
     font-size: 12px;
 
     &:hover, &:focus{
-      color: #e84141;
-      border: 1px solid #e84141;
+      color: $delete;
+      border: 1px solid $delete;
       outline: none;
       box-shadow: none;
       
       svg{
-        color: #e84141;
+        color: $delete;
       }
     }
 

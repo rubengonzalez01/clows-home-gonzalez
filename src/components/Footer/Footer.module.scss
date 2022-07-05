@@ -1,7 +1,7 @@
 @import '../../styles/vars';
 
 .footer {
-  background-color: #ebebeb;
+  background-color: $grey1;
 
   &__main {
     display: flex;
@@ -74,7 +74,7 @@
 
   
   &__rights {
-    background-color: #2f2f2f;
+    background-color: $footerback;
 
     &_wrapper {
       display: flex;
@@ -102,7 +102,7 @@
 
   &__rights_text {
     font-size: 13px;
-    color: #bbbaba;
+    color: $grey3;
   }
 
   &__rights_author {
@@ -116,7 +116,7 @@
       font-weight: 600;
 
       &:hover {
-        color: #ebebeb;
+        color: $grey1;
       }
     }
   }
