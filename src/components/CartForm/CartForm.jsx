@@ -21,8 +21,9 @@ const schema = Yup.object().shape({
                 .max(30, 'Máximo 30 caracteres'),
     dni: Yup.string()
                 .required('Este campo es obligatorio')
-                .min(7, 'El DNI es demasiado corto')
-                .max(8, 'Máximo 8 caracteres'),
+                .matches(/^[0-9]+$/, "Deben ser solo números")
+                .min(7, 'Debe tener entre 7 y 8 dígitos')
+                .max(8, 'Debe tener entre 7 y 8 dígitos'),
     email: Yup.string()
                 .required('Este campo es obligatorio')
                 .email('Formato de email inválido'),
@@ -144,7 +145,7 @@ export default function CartForm() {
                       <input
                         className={`form-control ${ formik.errors.dni && formik.touched.dni && styles.cartForm__alert }`}
                         id='dni'
-                        type="number"
+                        type="text"
                         name="dni"
                         onChange={ formik.handleChange }
                         onBlur={ formik.handleBlur }
