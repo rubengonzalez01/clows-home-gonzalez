@@ -4,6 +4,10 @@
   display: flex;
   justify-content: center;
 
+  @media only screen and (min-width: $tablet) {
+    min-height: calc(100vh - 355px);
+  }
+
   &__title {
     display: flex;
     width: 100%;
