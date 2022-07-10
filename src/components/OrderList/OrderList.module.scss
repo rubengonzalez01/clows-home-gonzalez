@@ -59,7 +59,7 @@
     color: $white;
     border: 1px solid $secondary;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 15px;
 
     &:hover, &:focus {
       background-color: #c9a35f;
@@ -67,6 +67,10 @@
       border: 1px solid $secondary;
       outline: none;
       box-shadow: none;
+    }
+
+    @media only screen and (min-width: $tablet) {
+      font-size: 18px;
     }
   }
 }

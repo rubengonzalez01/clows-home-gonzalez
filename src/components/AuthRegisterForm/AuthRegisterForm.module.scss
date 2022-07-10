@@ -14,7 +14,7 @@
     color: $white;
     border: 1px solid $secondary;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 15px;
     width: 160px;
 
     &:hover, &:focus, &:disabled{
@@ -24,6 +24,10 @@
       outline: none;
       box-shadow: none;
     }
+
+    @media only screen and (min-width: $tablet) {
+      font-size: 18px;
+    }
   }
 
   &__button_secondary {
@@ -31,7 +35,7 @@
     color: $secondary;
     border: 1px solid $secondary;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 15px;
     width: 160px;
     display: flex;
     align-items: center;
@@ -46,6 +50,10 @@
       border: 1px solid $secondary;
       outline: none;
       box-shadow: none;
+    }
+
+    @media only screen and (min-width: $tablet) {
+      font-size: 18px;
     }
 
     svg {

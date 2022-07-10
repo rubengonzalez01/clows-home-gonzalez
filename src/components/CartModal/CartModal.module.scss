@@ -103,7 +103,7 @@
       color: $white;
       border: none;
       font-weight: 600;
-      font-size: 18px;
+      font-size: 15px;
 
       &:hover, &:focus {
         background-color: $tertiary;
@@ -111,6 +111,10 @@
         border: none;
         outline: none;
         box-shadow: none;
+      }
+
+      @media only screen and (min-width: $tablet) {
+        font-size: 18px;
       }
 
     }

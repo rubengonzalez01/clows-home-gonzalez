@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 1.5rem;
+  justify-content: center;
 
   @media only screen and (min-width: $tablet) {
     min-height: calc(100vh - 355px);
@@ -16,8 +16,12 @@
   }
 
   &__title {
-    font-size: 35px;
+    font-size: 26px;
     font-weight: 600;
+
+    @media only screen and (min-width: $tablet) {
+      font-size: 35px;
+    }
   }
 
   &__info {
@@ -26,6 +30,11 @@
 
   &__text {
     margin-bottom: 5px;
+    font-size: 14px;
+
+    @media only screen and (min-width: $tablet) {
+      font-size: 16px;
+    }
   }
 
   &__button_primary {
@@ -33,7 +42,7 @@
     color: $white;
     border: 1px solid $secondary;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 15px;
 
     &:hover, &:focus{
       background-color: $tertiary;
@@ -41,6 +50,10 @@
       border: 1px solid $secondary;
       outline: none;
       box-shadow: none;
+    }
+
+    @media only screen and (min-width: $tablet) {
+      font-size: 18px;
     }
 
   }
