@@ -72,9 +72,10 @@
     border: 1px solid $grey1;
     border-radius: 5px;
     box-shadow: 0px 1px 12px $grey1;
+    margin-top: 1.5rem;
 
     @media only screen and (min-width: $desktop){
-      flex-direction: row;
+      flex-direction: row;      
     }
   }
 

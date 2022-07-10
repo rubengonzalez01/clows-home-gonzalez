@@ -3,8 +3,8 @@
 .detail {
   padding-top: 1.5rem;
 
-  @media only screen and (min-width: $desktop) {
+  @media only screen and (min-width: $tablet) {
     padding-top: 0;
-    height: 580px;
+    min-height: calc(100vh - 355px);
   }
 }

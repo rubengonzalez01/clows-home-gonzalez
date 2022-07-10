@@ -3,7 +3,7 @@
 .orderListContainer {
 
   @media only screen and (min-width: $tablet) {
-    min-height: 450px;
+    min-height: calc(100vh - 355px);
   }
   
   &__title {

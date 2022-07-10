@@ -7,7 +7,7 @@
   padding-top: 1.5rem;
 
   @media only screen and (min-width: $tablet) {
-    height: 450px;
+    min-height: calc(100vh - 355px);
   }
 
   svg {

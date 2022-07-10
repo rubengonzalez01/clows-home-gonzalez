@@ -29,11 +29,13 @@ export default function LoginModal({ show, hide, option, setOption}) {
 
   const handleLogout = async () => {
     await logout();
+    hide();
   }
 
   if(user){
     return (
-      <Modal show={show} onHide={hide}>
+      <Modal 
+        show={show} onHide={hide} centered>
         <Modal.Header closeButton>
           <div className={ styles.loginModal__header }>
             <FaRegUser />
@@ -60,7 +62,8 @@ export default function LoginModal({ show, hide, option, setOption}) {
 
   return (
     <>
-      <Modal show={show} onHide={hide}>
+      <Modal 
+        show={show} onHide={hide} centered>
         <Modal.Header closeButton>
           { option && <Modal.Title>Elegí una opción para iniciar sesión</Modal.Title>}
           { !option && isRegister && <Modal.Title>Registrarse</Modal.Title> }

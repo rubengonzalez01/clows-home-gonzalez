@@ -1,6 +1,10 @@
 @import '../../styles/vars';
 
 .cartTable {
+  
+  @media only screen and (min-width: $tablet) {
+    min-height: calc(100vh - 355px);
+  }
 
   &__title {
     font-size: 28px;
