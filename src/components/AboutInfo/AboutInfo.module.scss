@@ -12,10 +12,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 50px;
 
     @media only screen and (min-width: $desktop) {
       flex-direction: row;
+      padding: 0 50px;
     }
   }
 
@@ -24,14 +24,21 @@
   }
 
   &__body {
-    padding: 10px;
+
+    @media only screen and (min-width: $desktop) {
+      padding: 10px;
+    }
   }
 
   &__intro {
     font-size: 17px;
     line-height: 26px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
     color: $principal;
+
+    @media only screen and (min-width: $desktop) {
+      margin-bottom: 1.5rem;
+    }
   }
 
   &__text_container {
