@@ -25,7 +25,7 @@
   }
 
   &__head_item {
-    padding: 10px 5px;
+    padding: 10px;
     background-color: $principal;
     font-size: 13px;
     color: $white;
@@ -36,12 +36,17 @@
 
     &_secondary {
       width: 10%;
+      text-align: right;
     }
   }
 
   &__body_data {
     font-size: 13px;
-    padding: 10px 5px;
+    padding: 10px;
+  }
+
+  &__body_data_right {
+    text-align: right;
   }
 
 }

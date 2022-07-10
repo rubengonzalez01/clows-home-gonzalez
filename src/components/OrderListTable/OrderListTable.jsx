@@ -26,9 +26,9 @@ export default function OrderListTable({ selectedOrder }) {
                   ? selectedOrder.items.map( item => (
                                                       <tr key={item.id}>
                                                         <td className={ styles.orderListTable__body_data }>{ item.name }</td>
-                                                        <td className={ styles.orderListTable__body_data }>$ { currency.format(item.price) }</td>
-                                                        <td className={ styles.orderListTable__body_data }>{ item.quantity }</td>
-                                                        <td className={ styles.orderListTable__body_data }>$ { currency.format(item.total_price) }</td>
+                                                        <td className={` ${styles.orderListTable__body_data} ${styles.orderListTable__body_data_right} `}>${ currency.format(item.price) }</td>
+                                                        <td className={` ${styles.orderListTable__body_data} ${styles.orderListTable__body_data_right} `}>{ item.quantity }</td>
+                                                        <td className={` ${styles.orderListTable__body_data} ${styles.orderListTable__body_data_right} `}>${ currency.format(item.total_price) }</td>
                                                       </tr>
                                                     ))
                   : null
