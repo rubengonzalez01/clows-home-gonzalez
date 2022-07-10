@@ -9,6 +9,7 @@ import ItemMiniCard from '../ItemMiniCard/ItemMiniCard';
 export default function CartModal(props) {
   const navigate = useNavigate();
   const { itemList, totalPrice, setCheckout } = useCartContext();
+  const currency = Intl.NumberFormat('de-DE');
 
   const handleClick = () => {
     setCheckout(true);
@@ -50,11 +51,11 @@ export default function CartModal(props) {
                           <div className={ styles.cartModal__total_container }>
                             <div className={ styles.cartModal__total }>
                               <span>Subtotal:</span>
-                              <span>${ totalPrice() }</span>
+                              <span>$ { currency.format(totalPrice()) }</span>
                             </div>
                             <div className={ styles.cartModal__total }>
                               <h5 className={ styles.cartModal__total_text }>Total:</h5>
-                              <h5 className={ styles.cartModal__total_text }>${ totalPrice() }</h5>
+                              <h5 className={ styles.cartModal__total_text }>$ { currency.format(totalPrice()) }</h5>
                             </div>
 
                           </div>

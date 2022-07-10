@@ -5,6 +5,7 @@ import { useCartContext } from '../../context/CartContext';
 
 export default function ItemDetail({ item }) {
   const { addItem } = useCartContext();
+  const currency = Intl.NumberFormat('de-DE');
 
   const onAdd = (value) => {
     const itemWithQuantity = {
@@ -30,7 +31,7 @@ export default function ItemDetail({ item }) {
         <div className={ styles.itemDetail__body }>
           <div className={ styles.itemDetail__data }>
             <h5 className={ styles.itemDetail__title }>{ item.name }</h5>
-            <span className={ styles.itemDetail__price }>${ item.price }</span>
+            <span className={ styles.itemDetail__price }>$ { currency.format(item.price) }</span>
             <span className={ styles.itemDetail__options }>{ item.options }</span>
           </div>
           <div className={ styles.itemDetail__counter }>

@@ -1,6 +1,8 @@
 import styles from './PurchaseSummaryItem.module.scss';
 
 export default function PurchaseSummaryItem({ item }) {
+  const currency = Intl.NumberFormat('de-DE');
+
   return (
     <div className={ styles.purchaseSummaryItem }>
       <div className={ styles.purchaseSummaryItem__wrapper }>
@@ -9,7 +11,7 @@ export default function PurchaseSummaryItem({ item }) {
         </div>
         <div className={ styles.purchaseSummaryItem__data }>
           <h5 className={ styles.purchaseSummaryItem__title }>{ item.name }</h5>
-          <span className={ styles.purchaseSummaryItem__price }>${ item.price }</span>
+          <span className={ styles.purchaseSummaryItem__price }>$ { currency.format(item.price) }</span>
           <span className={ styles.purchaseSummaryItem__quantity }>Cantidad: { item.quantity }</span>
         </div>
       </div>

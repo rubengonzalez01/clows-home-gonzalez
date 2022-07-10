@@ -6,6 +6,7 @@ import styles from './PurchaseSummary.module.scss';
 export default function PurchaseSummary() {
   const { itemList, totalPrice } = useCartContext();
   const navigate = useNavigate();
+  const currency = Intl.NumberFormat('de-DE');
 
   const goCart = () => {
     navigate('/checkout/cart');
@@ -22,7 +23,7 @@ export default function PurchaseSummary() {
       <div className={ styles.purchaseSummary__total_container }>
         <div className={ styles.purchaseSummary__values_wrapper }>
           <span className={ styles.purchaseSummary__values_subtotal }>Subtotal</span>
-          <span className={ styles.purchaseSummary__values_subtotal }>${ totalPrice() }</span>
+          <span className={ styles.purchaseSummary__values_subtotal }>$ { currency.format(totalPrice()) }</span>
         </div>
         <div className={ styles.purchaseSummary__values_wrapper }>
           <span className={ styles.purchaseSummary__values_subtotal }>Gastos de envío</span>
@@ -30,7 +31,7 @@ export default function PurchaseSummary() {
         </div>
         <div className={ styles.purchaseSummary__values_wrapper_total }>
           <span className={ styles.purchaseSummary__values_total }>TOTAL</span>
-          <span className={ styles.purchaseSummary__values_total }>${ totalPrice() }</span>
+          <span className={ styles.purchaseSummary__values_total }>$ { currency.format(totalPrice()) }</span>
         </div>
         <div className={ styles.purchaseSummary__button_container }>
           <button onClick={ goCart } className={`btn btn-lg btn-block w-100 ${ styles.purchaseSummary__button_secondary }`}>Volver al carrito</button>

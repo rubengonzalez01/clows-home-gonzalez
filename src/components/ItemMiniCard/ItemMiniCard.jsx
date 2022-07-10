@@ -7,6 +7,7 @@ import Counter from '../Counter/Counter';
 export default function ItemMiniCard({ item }){
   const { removeItem, addQuantity, subtractQuantity } = useCartContext();
   let [count, setCount] = useState(item.quantity);
+  const currency = Intl.NumberFormat('de-DE');
 
   const handleCountPlus = () => {
     addQuantity(item, setCount);
@@ -27,7 +28,7 @@ export default function ItemMiniCard({ item }){
           <div className={ styles.itemMiniCard__counter }>
             <Counter count={ count } handleCountPlus={ handleCountPlus } handleCountMinus={ handleCountMinus } />
           </div>
-          <span className={ styles.itemMiniCard__price }>${ item.price }</span>
+          <span className={ styles.itemMiniCard__price }>$ { currency.format(item.price) }</span>
         </div>
         <div className={ styles.itemMiniCard__remove }>
           <button onClick={() => removeItem(item.id) } className={ styles.itemMiniCard__remove_btn }>
