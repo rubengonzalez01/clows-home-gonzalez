@@ -38,10 +38,10 @@ export default function ItemCount ({ initial, stock, addToCart }) {
       <div className={ styles.itemCounter__add_cart }>
         <button 
           onClick={ handleAdd } 
-          disabled={ loading }
+          disabled={ loading || stock === 0 }
           className='btn btn-lg btn-block w-100'>
           { loading ? <AppSpinner variant='light' size='sm' withClass={false}/>
-                    : 'Agregar al carrito' 
+                    : stock !== 0 ? 'Agregar al carrito' : 'Sin stock' 
           }
         </button>
       </div>

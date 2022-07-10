@@ -35,16 +35,16 @@ const schema = Yup.object().shape({
 export default function CartForm() {
   const { itemList, totalPrice, clear } = useCartContext();
   const { user } = useAuthContext();
-  const [orderId, setOrderId] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const createOrder = async (values) => {
     const newOrder = {
       buyer: values,
-      items: itemList.map(({ id, name, quantity, price }) => ({ id, name, quantity, price })),
+      items: itemList.map(({ id, name, quantity, price, total_price }) => ({ id, name, quantity, price, total_price })),
       total: totalPrice(),
-      date: new Date(),
+      state: 'En proceso',
+      date: new Date().toLocaleDateString('en-GB')
     };
 
     setLoading(true);
@@ -74,7 +74,6 @@ export default function CartForm() {
             batch.commit();
             setLoading(false);
             clear();
-            setOrderId(doc.id);
             goToStatus(doc.id);
         })
     } else {

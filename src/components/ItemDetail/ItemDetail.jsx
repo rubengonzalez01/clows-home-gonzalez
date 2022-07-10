@@ -25,7 +25,7 @@ export default function ItemDetail({ item }) {
       </Breadcrumb>
       <div className={ styles.itemDetail__wrapper }>
         <div className={ styles.itemDetail__images }>
-          <img className={ styles.itemDetail__image } src={ item.image } alt={item.name} />
+          <img className={ styles.itemDetail__image } src={ item.image_big1 } alt={item.name} />
         </div>
         <div className={ styles.itemDetail__body }>
           <div className={ styles.itemDetail__data }>

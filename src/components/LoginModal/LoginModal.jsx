@@ -3,12 +3,14 @@ import { Modal } from "react-bootstrap";
 import { useAuthContext } from "../../context/AuthContext";
 import Auth from "../Auth/Auth";
 import styles from './LoginModal.module.scss';
-import { BiLogOut } from 'react-icons/bi';
+import { BiLogOut, BiGift } from 'react-icons/bi';
 import { FaRegUser } from 'react-icons/fa';
+import { useNavigate } from "react-router-dom";
 
 export default function LoginModal({ show, hide, option, setOption}) {
   const [ isRegister, setIsRegister] = useState(false);
   const { user, logout } = useAuthContext();
+  const navigate = useNavigate();
 
   const handleRegister = () => {
     setOption(false);
@@ -18,6 +20,11 @@ export default function LoginModal({ show, hide, option, setOption}) {
   const handleLogin = () => {
     setOption(false);
     setIsRegister(false);
+  }
+
+  const handleGoTo = () => {
+    hide();
+    navigate('/orders');
   }
 
   const handleLogout = async () => {
@@ -33,7 +40,13 @@ export default function LoginModal({ show, hide, option, setOption}) {
             { user }
           </div>
         </Modal.Header>
-        <Modal.Body className={ `${styles.loginModal__body} ${styles.loginModal__body_right}` }>
+        <Modal.Body className={ styles.loginModal__body_user }>
+          <button 
+            className={`btn btn-lg btn-block ${ styles.loginModal__button_primary } ${ styles.loginModal__button_font16 }`} 
+            onClick={ handleGoTo }>
+              <BiGift />
+              <span>Mis pedidos</span>              
+          </button>
           <button 
             className={`btn btn-lg btn-block ${ styles.loginModal__button_primary } ${ styles.loginModal__button_font16 }`} 
             onClick={ handleLogout }>

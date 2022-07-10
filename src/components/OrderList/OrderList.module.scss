@@ -1,0 +1,72 @@
+@import '../../styles/vars';
+
+.orderList {
+
+  &__orders_container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @media only screen and (min-width: $desktop) {
+      flex-direction: row;
+    }
+  }
+
+  &__idList {
+    margin-bottom: 20px;
+  }
+
+  &__orders_title {
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  &__order {
+    padding: 8px;
+    border: 1px solid $grey2;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $tertiary;
+    }
+
+    &_active {
+      background-color: $tertiary;
+      color: $white;
+    }
+  }
+
+  &__orderId {
+    font-size: 13px;
+  }
+
+  &__item_list {
+    padding: 10px 0 0 0;
+  }
+
+  &__noElements {
+    height: 300px;
+  }
+
+  &__description {
+    padding-bottom: 20px
+  }
+
+  &__button_primary {
+    background-color: $secondary;
+    color: $white;
+    border: 1px solid $secondary;
+    font-weight: 600;
+    font-size: 18px;
+
+    &:hover, &:focus {
+      background-color: #c9a35f;
+      color: $white;
+      border: 1px solid $secondary;
+      outline: none;
+      box-shadow: none;
+    }
+  }
+}

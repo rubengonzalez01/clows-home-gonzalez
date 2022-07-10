@@ -6,6 +6,7 @@ import styles from './AuthLoginForm.module.scss';
 import AppSpinner from '../AppSpinner/AppSpinner';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { useAuthContext } from '../../context/AuthContext';
+import toast from 'react-hot-toast';
 
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -26,7 +27,10 @@ export default function AuthLoginForm({ close, setOption }) {
   const userLogin = (values) => {
     setLoading(true);
     login(values)
-      .then(() => { close() })
+      .then(() => { 
+        toast.success('¡Te damos la bienvenida!');
+        close() 
+      })
       .catch(err => { setError(err) })
       .finally(() => { setLoading(false) });
   }

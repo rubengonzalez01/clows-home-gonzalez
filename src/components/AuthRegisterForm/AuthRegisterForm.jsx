@@ -5,6 +5,7 @@ import { MdKeyboardArrowLeft } from 'react-icons/md';
 import styles from './AuthRegisterForm.module.scss';
 import AppSpinner from '../AppSpinner/AppSpinner';
 import { useAuthContext } from '../../context/AuthContext';
+import toast from 'react-hot-toast';
 
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -28,7 +29,10 @@ export default function AuthRegisterForm({ close, setOption }) {
   const userRegister = (values) => {
     setLoading(true);
     register(values)
-      .then(() => { close() })
+      .then(() => { 
+        toast.success('¡Te damos la bienvenida!');
+        close() 
+      })
       .catch(err => { setError(err) })
       .finally(() => { setLoading(false) });
   }

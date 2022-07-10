@@ -24,7 +24,10 @@
     gap: 10px;
   }
 
-  &__body_right {
+  &__body_user {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: flex-end;
   }
 

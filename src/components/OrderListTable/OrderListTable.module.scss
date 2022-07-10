@@ -1,0 +1,47 @@
+@import '../../styles/vars';
+
+.orderListTable {
+  &__orderResume {
+    width: 100%;
+
+    @media only screen and (min-width: $desktop) {
+      margin: 0 20px;
+    }
+  }
+
+  &__resume_content {
+    border: 1px solid $grey2;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  &__resume_text {
+    font-size: 15px;
+  }
+  
+  &__table {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  &__head_item {
+    padding: 10px 5px;
+    background-color: $principal;
+    font-size: 13px;
+    color: $white;
+
+    &_principal {
+      width: 70%;
+    }
+
+    &_secondary {
+      width: 10%;
+    }
+  }
+
+  &__body_data {
+    font-size: 13px;
+    padding: 10px 5px;
+  }
+
+}

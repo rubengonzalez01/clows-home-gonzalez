@@ -17,7 +17,7 @@ export default function ItemListContainer() {
 
   let title = '';
   if(categoryType) {
-    title = CATEGORY[categoryType];
+    title = CATEGORY[categoryType] || 'Resultados de la búsqueda';    
   } else {
     title = location.pathname === '/productos' ? 'Resultados de la búsqueda' : 'Los más pedidos';
   }
